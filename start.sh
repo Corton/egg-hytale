@@ -51,7 +51,7 @@ JAVA_CMD="${JAVA_CMD} -jar HytaleServer.jar"
 
 # Add assets parameter if set and ends with .zip
 if [ -n "${ASSET_PACK}" ] && [[ "${ASSET_PACK}" == *.zip ]]; then
-    JAVA_CMD="${JAVA_CMD} --assets \"${ASSET_PACK}\""
+    JAVA_CMD="${JAVA_CMD} --assets ${ASSET_PACK}"
 fi
 
 # Add accept-early-plugins flag if variable is set
@@ -73,15 +73,11 @@ fi
 
 # Add backup parameters if enabled
 if [ "${ENABLE_BACKUPS}" = "1" ]; then
-    JAVA_CMD="${JAVA_CMD} \
-    --backup \
-    --backup-dir \"${BACKUP_DIRECTORY}\" \
-    --backup-frequency \"${BACKUP_FREQUENCY}\""
+    JAVA_CMD="${JAVA_CMD} --backup --backup-dir ${BACKUP_DIRECTORY} --backup-frequency ${BACKUP_FREQUENCY}"
 fi
 
 # Add bind address
-JAVA_CMD="${JAVA_CMD} \
-    --bind 0.0.0.0:${SERVER_PORT}"
+JAVA_CMD="${JAVA_CMD} --bind 0.0.0.0:${SERVER_PORT}"
 
 # Execute the command
 eval $JAVA_CMD
