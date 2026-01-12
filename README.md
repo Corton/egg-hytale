@@ -90,14 +90,14 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Hytale team for the game and server software
-- Pelican Panel for the hosting platform
+- Pelican Panel and Pterodactyl Panel for the hosting platforms
 - Community contributors
 
 ## Links
 
 - [Hytale Official Website](https://hytale.com/)
 - [Pelican Panel](https://pelican.dev/)
-- [Pterodactyl Panel](https://pterodactyl.io/) (untested compatibility)
+- [Pterodactyl Panel](https://pterodactyl.io/)
 - [Report Issues](https://github.com/NATroutter/egg-hytale/issues)
 
 ## Support
