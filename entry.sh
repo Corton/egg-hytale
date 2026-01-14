@@ -26,44 +26,10 @@ echo "Platform: $ARCH"
 
 case "$ARCH" in
     x86_64)
+        DOWNLOADER="./hytale-downloader-linux-amd64"
         ;;
     aarch64|arm64)
-		USE_DOWNLOADER=0
-        echo ""
-        echo "╔═══════════════════════════════════════════════════════════════════════════════════╗"
-        echo "║                             ARM ARCHITECTURE DETECTED                             ║"
-        echo "╠═══════════════════════════════════════════════════════════════════════════════════╣"
-        echo "║                                                                                   ║"
-        echo "║  The Hytale automatic downloader is not available for ARM systems.                ║"
-        echo "║  You must manually copy server files from your Hytale launcher installation.      ║"
-        echo "║                                                                                   ║"
-        echo "║  INSTRUCTIONS:                                                                    ║"
-        echo "║                                                                                   ║"
-        echo "║  1. Find the files in your Hytale launcher installation folder:                   ║"
-        echo "║     • Windows: %appdata%\\Hytale\\install\\release\\package\\game\\latest               ║"
-        echo "║     • Linux:   \$XDG_DATA_HOME/Hytale/install/release/package/game/latest          ║"
-        echo "║     • MacOS:   ~/Application Support/Hytale/install/release/package/game/latest   ║"
-        echo "║                                                                                   ║"
-        echo "║  2. Copy the following to your server directory:                                  ║"
-        echo "║     • Contents of the Server/ folder (all files inside it)                        ║"
-        echo "║     • Assets.zip file                                                             ║"
-        echo "║                                                                                   ║"
-        echo "║  3. Restart the container after copying files                                     ║"
-        echo "║                                                                                   ║"
-        echo "║  ⚠ WARNING: Automatic updates are not supported on ARM systems.                   ║"
-        echo "║    You must repeat this process manually whenever you want to update the server.  ║"
-        echo "║                                                                                   ║"
-        echo "╚═══════════════════════════════════════════════════════════════════════════════════╝"
-        echo ""
-        echo "Checking if server files already exist..."
-
-        # Check if HytaleServer.jar exists (indicating manual setup was done)
-        if [ -f "HytaleServer.jar" ]; then
-            echo "✓ Server files found! Continuing with startup..."
-        else
-            echo "⨯ Server files not found. Please follow the instructions above."
-            exit 1
-        fi
+        DOWNLOADER="./hytale-downloader-linux-arm64"
         ;;
     *)
         echo "Error: Unsupported architecture: $ARCH"
