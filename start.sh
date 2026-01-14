@@ -55,6 +55,18 @@ if [ "${DISABLE_SENTRY}" = "1" ]; then
     JAVA_CMD="${JAVA_CMD} --disable-sentry"
 fi
 
+if [ -n "${BOOT_COMMANDS}" ]; then
+    JAVA_CMD="${JAVA_CMD} --boot-command ${BOOT_COMMANDS}"
+fi
+
+if [ "${FORCE_NETWORK_FLUSH}" = "1" ]; then
+    JAVA_CMD="${JAVA_CMD} --force-network-flush"
+fi
+
+if [ "${EVENT_DEBUG}" = "1" ]; then
+    JAVA_CMD="${JAVA_CMD} --event-debug"
+fi
+
 # Add backup parameters if enabled
 if [ "${ENABLE_BACKUPS}" = "1" ]; then
     JAVA_CMD="${JAVA_CMD} --backup --backup-dir ./backup --backup-frequency ${BACKUP_FREQUENCY} --backup-max-count ${MAXIMUM_BACKUPS}"
@@ -69,4 +81,5 @@ JAVA_CMD="${JAVA_CMD} --owner-uuid ${PROFILE_UUID}"
 JAVA_CMD="${JAVA_CMD} --bind 0.0.0.0:${SERVER_PORT}"
 
 # Execute the command
+echo $JAVA_CMD
 eval $JAVA_CMD

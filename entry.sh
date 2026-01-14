@@ -286,6 +286,20 @@ echo "Copying start.sh template to /home/container..."
 cp /usr/local/bin/start.sh /home/container/start.sh
 chmod 755 /home/container/start.sh
 
+# Check if the backup directory exists
+if [ ! -d "/home/container/backup" ]; then
+    echo "Backup directory does not exist. Creating it..."
+    mkdir -p /home/container/backup
+
+    if [ $? -ne 0 ]; then
+        echo "Failed to create backup directory: /backup"
+        exit 1
+    fi
+else
+    echo "Backup directory already exists."
+fi
+chmod -R 755 /home/container/backup
+
 # Check if the downloader exists
 if [ ! -f "$DOWNLOADER" ]; then
     echo "Error: Hytale downloader not found!"
