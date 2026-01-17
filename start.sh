@@ -20,10 +20,12 @@ fi
 
 # Add max memory (always set)
 MEMORY_OVERHEAD=${MEMORY_OVERHEAD:-0}
-if [ -n "${SERVER_MEMORY}" ] && [ "${SERVER_MEMORY}" -gt "${MEMORY_OVERHEAD}" ] 2>/dev/null; then
+if [ -z "${SERVER_MEMORY}" ] || [ "${SERVER_MEMORY}" = "0" ]; then
+    JAVA_MEMORY=1024
+elif [ "${SERVER_MEMORY}" -gt "${MEMORY_OVERHEAD}" ] 2>/dev/null; then
     JAVA_MEMORY=$((SERVER_MEMORY - MEMORY_OVERHEAD))
 else
-    JAVA_MEMORY=${SERVER_MEMORY:-1024}
+    JAVA_MEMORY=${SERVER_MEMORY}
 fi
 
 JAVA_CMD="${JAVA_CMD} -Xmx${JAVA_MEMORY}M"
