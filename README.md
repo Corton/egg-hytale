@@ -12,9 +12,12 @@ Panel eggs for hosting Hytale game servers on both Pelican and Pterodactyl panel
 >
 > If you encounter any issues or have questions, please don't hesitate to ask. We strive to respond and resolve issues as quickly as possible.
 >
+>
 > **How to get help:**
 > 1. **Search Existing Issues:** Check the [GitHub Issues](https://github.com/NATroutter/egg-hytale/issues) to see if your problem has already been reported or solved.
 > 2. **Open a New Issue:** If you can't find a solution, [open a new issue](https://github.com/NATroutter/egg-hytale/issues/new/choose).
+>
+> ***Please Note:** We are only humans and unfortunately we have to sleep and have lives outside of this project. Support is offered within a humanly possible timeframe, so please be patient.*
 
 ## Overview
 
